@@ -116,7 +116,8 @@ namespace anydeskresolver
         {
             Console.Clear();
             txtIPAddr.Text = "0.0.0.0";
-            lbispname.Text = "Not Resolved Yet";
+            lbinfo.Text = "Not Resolved Yet";
+            btnLOC.Visible = false;
             Resolve();
         }
         private void BtnCopy_Click(object sender, EventArgs e)
@@ -134,20 +135,28 @@ namespace anydeskresolver
                     {
                         var ipinfo = JsonConvert.DeserializeObject<ipinfo>(Get($"https://ipinfo.io/{c.RemoteAddress}/json"));
                         log.custom($"{c.LocalAddress}:{c.LocalPort} <-> {c.RemoteAddress}:{c.RemotePort} S: {c.State} PID: {c.ProcessId} PN: {c.ProcessName} ORG: {ipinfo.org}", "ANYDESK", log.hex("#FC4236"));
-                        if (!ipinfo.org.ToLower().Contains("google llc") && !ipinfo.org.ToLower().Contains("cloudflare, inc.") && !ipinfo.org.ToLower().Contains("amazon.com, inc."))
+                        if (!ipinfo.hostname.ToLower().Contains("anydesk"))
                         {
-                            log.debug($"IP Found: {c.RemoteAddress} CITY: {ipinfo.city} REG: {ipinfo.region} COUNTRY: {ipinfo.country} ORG: {ipinfo.org}");
+                            log.debug($"IP Found: {c.RemoteAddress} CITY: {ipinfo.city} REG: {ipinfo.region} COUNTRY: {ipinfo.country} ORG: {ipinfo.org} LOC: {ipinfo.loc}");
                             txtIPAddr.Text = c.RemoteAddress.ToString();
                             btnCopy.Enabled = true;
-                            lbispname.Text = $"{ipinfo.org} ({ipinfo.country})";
+                            btnLOC.Visible = true;
+                            lbinfo.Text = $"{ipinfo.org} ({ipinfo.country})\n{ipinfo.city}\n{ipinfo.region}\n{ipinfo.loc}";
+                            publoc = ipinfo.loc;
                         }
                     }
                 }
             }
         }
+        public string publoc;
+        private void BtnLOC_Click(object sender, EventArgs e)
+        {
+            Process.Start($"https://www.google.com.br/maps/search/{publoc}");
+        }
     }
     public class ipinfo
     {
+        public string hostname { get; set; }
         public string city { get; set; }
         public string region { get; set; }
         public string country { get; set; }

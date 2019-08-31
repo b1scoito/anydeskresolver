@@ -36,9 +36,10 @@
             this.lbTitle2 = new System.Windows.Forms.Label();
             this.lbTitle1 = new System.Windows.Forms.Label();
             this.pnctx = new System.Windows.Forms.Panel();
-            this.lbispname = new System.Windows.Forms.Label();
+            this.lbinfo = new System.Windows.Forms.Label();
             this.pnGeoIP = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.PictureBox();
+            this.btnLOC = new MaterialSkin.Controls.MaterialRaisedButton();
             this.pnGeoIP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.SuspendLayout();
@@ -47,11 +48,12 @@
             // 
             this.lbCtx2.AutoSize = true;
             this.lbCtx2.ForeColor = System.Drawing.Color.Gray;
-            this.lbCtx2.Location = new System.Drawing.Point(294, 151);
+            this.lbCtx2.Location = new System.Drawing.Point(242, 48);
             this.lbCtx2.Name = "lbCtx2";
-            this.lbCtx2.Size = new System.Drawing.Size(138, 28);
+            this.lbCtx2.Size = new System.Drawing.Size(173, 56);
             this.lbCtx2.TabIndex = 26;
-            this.lbCtx2.Text = "Needs AnyDesk opened \r\nwith connection Incoming.";
+            this.lbCtx2.Text = "Needs AnyDesk opened \r\nwith connection Incoming.\r\n(If Victim has Direct Connectio" +
+    "ns\r\n Turned Off this tool won\'t work.)";
             this.lbCtx2.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // btnResolve
@@ -61,7 +63,7 @@
             this.btnResolve.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnResolve.Depth = 0;
             this.btnResolve.Icon = null;
-            this.btnResolve.Location = new System.Drawing.Point(346, 182);
+            this.btnResolve.Location = new System.Drawing.Point(341, 166);
             this.btnResolve.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnResolve.Name = "btnResolve";
             this.btnResolve.Primary = true;
@@ -79,7 +81,7 @@
             this.btnCopy.Depth = 0;
             this.btnCopy.Enabled = false;
             this.btnCopy.Icon = null;
-            this.btnCopy.Location = new System.Drawing.Point(11, 92);
+            this.btnCopy.Location = new System.Drawing.Point(11, 86);
             this.btnCopy.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Primary = true;
@@ -94,7 +96,7 @@
             this.txtIPAddr.Depth = 0;
             this.txtIPAddr.Enabled = false;
             this.txtIPAddr.Hint = "";
-            this.txtIPAddr.Location = new System.Drawing.Point(11, 63);
+            this.txtIPAddr.Location = new System.Drawing.Point(11, 57);
             this.txtIPAddr.MaxLength = 32767;
             this.txtIPAddr.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtIPAddr.Name = "txtIPAddr";
@@ -148,25 +150,25 @@
             this.pnctx.Size = new System.Drawing.Size(5, 77);
             this.pnctx.TabIndex = 2;
             // 
-            // lbispname
+            // lbinfo
             // 
-            this.lbispname.AutoSize = true;
-            this.lbispname.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbispname.ForeColor = System.Drawing.Color.White;
-            this.lbispname.Location = new System.Drawing.Point(13, 5);
-            this.lbispname.Name = "lbispname";
-            this.lbispname.Size = new System.Drawing.Size(98, 15);
-            this.lbispname.TabIndex = 6;
-            this.lbispname.Text = "Not Resolved Yet";
+            this.lbinfo.AutoSize = true;
+            this.lbinfo.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbinfo.ForeColor = System.Drawing.Color.White;
+            this.lbinfo.Location = new System.Drawing.Point(13, 7);
+            this.lbinfo.Name = "lbinfo";
+            this.lbinfo.Size = new System.Drawing.Size(98, 15);
+            this.lbinfo.TabIndex = 6;
+            this.lbinfo.Text = "Not Resolved Yet";
             // 
             // pnGeoIP
             // 
             this.pnGeoIP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pnGeoIP.Controls.Add(this.pnctx);
-            this.pnGeoIP.Controls.Add(this.lbispname);
-            this.pnGeoIP.Location = new System.Drawing.Point(12, 134);
+            this.pnGeoIP.Controls.Add(this.lbinfo);
+            this.pnGeoIP.Location = new System.Drawing.Point(12, 127);
             this.pnGeoIP.Name = "pnGeoIP";
-            this.pnGeoIP.Size = new System.Drawing.Size(278, 84);
+            this.pnGeoIP.Size = new System.Drawing.Size(278, 75);
             this.pnGeoIP.TabIndex = 27;
             // 
             // btnClose
@@ -181,12 +183,31 @@
             this.btnClose.TabStop = false;
             this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
+            // btnLOC
+            // 
+            this.btnLOC.AutoSize = true;
+            this.btnLOC.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnLOC.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLOC.Depth = 0;
+            this.btnLOC.Icon = null;
+            this.btnLOC.Location = new System.Drawing.Point(172, 86);
+            this.btnLOC.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnLOC.Name = "btnLOC";
+            this.btnLOC.Primary = true;
+            this.btnLOC.Size = new System.Drawing.Size(47, 36);
+            this.btnLOC.TabIndex = 29;
+            this.btnLOC.Text = "loc";
+            this.btnLOC.UseVisualStyleBackColor = true;
+            this.btnLOC.Visible = false;
+            this.btnLOC.Click += new System.EventHandler(this.BtnLOC_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.ClientSize = new System.Drawing.Size(432, 230);
+            this.ClientSize = new System.Drawing.Size(432, 210);
+            this.Controls.Add(this.btnLOC);
             this.Controls.Add(this.lbCtx2);
             this.Controls.Add(this.btnResolve);
             this.Controls.Add(this.btnCopy);
@@ -223,9 +244,10 @@
         private System.Windows.Forms.Label lbTitle2;
         private System.Windows.Forms.Label lbTitle1;
         private System.Windows.Forms.Panel pnctx;
-        private System.Windows.Forms.Label lbispname;
+        private System.Windows.Forms.Label lbinfo;
         private System.Windows.Forms.PictureBox btnClose;
         private System.Windows.Forms.Panel pnGeoIP;
+        private MaterialSkin.Controls.MaterialRaisedButton btnLOC;
     }
 }
 
